@@ -1,11 +1,43 @@
-JCLLIB: IBMUSER.ANSIBLE.JCLLIB
-driver:
+jcllib: IBMUSER.ANSIBLE.JCLLIB
+target:
   mcat:
     name: MCAT.F21D
     volume: F21DC1
-master:
+  iodf:
+    name: SHR1D.IODF00
+    volume: F21DC1
+    suffix: A1
+  page:
+    volume: F21DC1
+  spool:
+    volume: F21DC1
+  ckpt:
+    volume: F21DC1
+  smf:
+    volume: F21DC1
+  cds:
+    volume: F21DC1
+  volumes:
+    - F21DT1
+    - F21DC1
+    - F21DU1
+  devices:
+    - E9A7
+    - E9A8
+    - E9A9
+source:
   mcat:
     name: MCAT.MN1D
     volume: MN1DT1
+  iodf:
+    name: SYS1.IODF00.CLUSTER
+    volume: MN1DC1
+  volumes:
+    - MN1DT1
+    - MN1DC1
+    - MN1DU1
+driver:
+  mcat:
+    name: MCAT.GW21
 hlq: SHR1D
 ssa: CLONE

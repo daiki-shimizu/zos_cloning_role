@@ -9,9 +9,9 @@
        **.VVDS.**,                                  -
        **.VTOCIX.**,                                -
      ))                                             -
-        LOGINDYNAM({{ master.mcat.volume}})                          -
-        OUTDYNAM({{ driver.mcat.volume }})                            -
+        LOGINDYNAM({{ source_volume }})                          -
+        OUTDYNAM({{ target_volume }})                            -
         SHR TOL(ENQF) ALLDATA(*) ALLEXCP            -
-        RECATALOG({{ driver.mcat.name }})                        -
-        INCAT({{ master.mcat.name }}) ONLYINCAT
+        RECATALOG({{ target.mcat.name }})                        -
+        INCAT({{ source.mcat.name }}) ONLYINCAT
 /*

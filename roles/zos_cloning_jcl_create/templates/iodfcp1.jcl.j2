@@ -4,12 +4,12 @@
 //SYSPRINT DD SYSOUT=*
 //SYSIN DD *
    COPY DATASET(INCLUDE(                          -
-      {{ iodf.source }}.CLUSTER                         -
+      {{ source.iodf.name }}                         -
    ))                                             -
-   LOGINDYNAM({{ master_mcat_volume }})                             -
-   OUTDYNAM({{ driver.mcat.volume }})                               -
+   LOGINDYNAM({{ source.iodf.volume }})                             -
+   OUTDYNAM({{ target.iodf.volume }})                               -
    SHR TOL(ENQF) ALLDATA(*) ALLEXCP               -
    RECATALOG({{ driver.mcat.name }})                           -
-   INCAT({{ master_mcat_name }}) ONLYINCAT                    -
-   RENAMEU(({{ iodf.source }}.CLUSTER,{{ iodf.target }}))
+   INCAT({{ source.mcat.name }}) ONLYINCAT                    -
+   RENAMEU(({{ source.iodf.name }},{{ target.iodf.name }}))
 /*

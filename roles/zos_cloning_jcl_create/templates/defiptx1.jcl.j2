@@ -3,11 +3,11 @@
 //IPLTEXT EXEC PGM=ICKDSF,REGION=1024K,
 //        COND=(0,NE),PARM='NOREPLYU'
 //SYSPRINT DD SYSOUT=*
-//IPLVOL   DD  DISP=SHR,UNIT=SYSALLDA,VOL=SER={{ volume }}
+//IPLVOL   DD  DISP=SHR,UNIT=SYSALLDA,VOL=SER={{ target.volumes[0] }}
 //IPLTEXT  DD  DSN=SYS1.SAMPLIB(IPLRECS),
-//             DISP=SHR,UNIT=SYSALLDA,VOL=SER={{ volume }}
+//             DISP=SHR,UNIT=SYSALLDA,VOL=SER={{ target.volumes[0] }}
 //         DD  DSN=SYS1.SAMPLIB(IEAIPL00),
-//             DISP=SHR,UNIT=SYSALLDA,VOL=SER={{ volume }}
+//             DISP=SHR,UNIT=SYSALLDA,VOL=SER={{ target.volumes[0] }}
 //SYSIN    DD  *
    REFORMAT  DDNAME(IPLVOL)                                      -
              IPLDD(IPLTEXT)                                      -

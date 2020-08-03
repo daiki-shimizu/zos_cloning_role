@@ -1,0 +1,26 @@
+- name: delete an old JCL
+  file:
+    path: "/tmp/{{ jcl_name }}"
+    state: absent
+
+- name: create a JCL
+  template:
+    src: "{{ jcl_name }}.j2"
+    dest: "/tmp/{{ jcl_name }}"
+
+- name: Convert the file from ISO8859-1 to IBM-1047
+  zos_encode:
+    src: "/tmp/{{ jcl_name }}"
+    from_encoding: ISO8859-1
+    to_encoding: IBM-1047
+
+- name: retrieve the content of the JCL
+  shell: cat "/tmp/{{ jcl_name }}"
+  register: content
+
+- name: show the content
+  debug:
+    msg: "{{ content.stdout_lines }}"
+
+- name: Copy the file to MVS Dataset
+  shell: cp "/tmp/{{ jcl_name }}" "//'{{ jcllib|upper }}({{ member|upper }})'"

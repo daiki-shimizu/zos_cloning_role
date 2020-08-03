@@ -5,7 +5,7 @@
 //SYSIN     DD *
   DEFINEDS SYSPLEX(MONOPLEX)
        DSN({{ ssa }}.{{ hlq }}.WLM.CDS01)
-       VOLSER({{ volume }})
+       VOLSER({{ target.cds.volume }})
        MAXSYSTEM(8)
        CATALOG
      DATA TYPE(WLM)

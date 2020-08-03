@@ -2,37 +2,38 @@
 //ALTER EXEC PGM=IDCAMS,REGION=512K
 //SYSPRINT DD SYSOUT=*
 //SYSIN    DD *
-    ALTER {{ ssa }}.IODF{{ iodf_suffix }} -
+{% set mcat = target.mcat.name %} 
+    ALTER {{ ssa }}.IODF{{ target.iodf.suffix }} -
       NEWNAME({{ hlq }}.IODF00) -
-      CAT({{ name }})
-    ALTER {{ ssa }}.IODF{{ iodf_suffix }}.CLUSTER -
+      CAT({{ mcat }})
+    ALTER {{ ssa }}.IODF{{ target.iodf.suffix }}.CLUSTER -
       NEWNAME({{ hlq }}.IODF00.CLUSTER) -
-      CAT({{ name }})
+      CAT({{ mcat }})
 
 {% for type in ["COMMON", "PLPA", "LOCAL1"] %}
     ALTER {{ ssa }}.{{ hlq }}.PAGE.{{ type }} -
       NEWNAME({{ hlq }}.PAGE.{{ type }}) -
-      CAT({{ name }})
+      CAT({{ mcat }})
     ALTER {{ ssa }}.{{ hlq }}.PAGE.{{ type }}.DATA -
       NEWNAME({{ hlq }}.PAGE.{{ type }}).DATA -
-      CAT({{ name }})
+      CAT({{ mcat }})
 {% endfor %}
 
 {% for type in ["MAN1", "MAN2", "MAM3"] %}
     ALTER {{ ssa }}.{{ hlq }}.{{ type }} -
       NEWNAME({{ hlq }}.{{ type }}) -
-      CAT({{ name }})
+      CAT({{ mcat }})
     ALTER {{ ssa }}.{{ hlq }}.{{ type }}.DATA -
       NEWNAME({{ hlq }}.{{ type }}).DATA -
-      CAT({{ name }})
+      CAT({{ mcat }})
 {% endfor %}
 
 {% for type in ["WLM.CDS01", "WLM.CDS02", "XCF_CDS01", "XCF_CDS02"] %}
     ALTER {{ ssa }}.{{ hlq }}.{{ type }} -
       NEWNAME({{ hlq }}.{{ type }}) -
-      CAT({{ name }})
+      CAT({{ mcat }})
     ALTER {{ ssa }}.{{ hlq }}.{{ type }}.DATA -
       NEWNAME({{ hlq }}.{{ type }}).DATA -
-      CAT({{ name }})
+      CAT({{ mcat }})
 {% endfor %}
 /*

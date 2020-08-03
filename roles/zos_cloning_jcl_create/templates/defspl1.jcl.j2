@@ -3,14 +3,14 @@
 //SYSPRINT DD SYSOUT=*
 //DEFSPOL  DD DISP=(NEW,KEEP),
 //            DSN={{ hlq }}.HASPACE,UNIT=SYSALLDA,
-//            SPACE=(TRK,48000,,CONTIG,ROUND),VOL=SER={{ volume }}
+//            SPACE=(TRK,30000,,CONTIG,ROUND),VOL=SER={{ target.spool.volume }}
 //*
 //DEFCKPT  EXEC PGM=IEFBR14
 //SYSPRINT DD SYSOUT=*
 //DEFCKPT  DD DISP=(NEW,KEEP),
 //            DSN={{ hlq }}.HACKPT1,UNIT=SYSALLDA,
-//            SPACE=(TRK,30,,CONTIG,ROUND),VOL=SER={{ volume }}
+//            SPACE=(TRK,30,,CONTIG,ROUND),VOL=SER={{ target.ckpt.volume }}
 //DEFCKP2  DD DISP=(NEW,KEEP),
 //            DSN={{ hlq }}.HACKPT2,UNIT=SYSALLDA,
-//            SPACE=(TRK,30,,CONTIG,ROUND),VOL=SER={{ volume }}
+//            SPACE=(TRK,30,,CONTIG,ROUND),VOL=SER={{ target.ckpt.volume }}
 //*       

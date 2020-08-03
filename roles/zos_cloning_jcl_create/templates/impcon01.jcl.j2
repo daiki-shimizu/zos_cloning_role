@@ -4,9 +4,9 @@
 //SYSIN    DD *
    IMPORT CONNECT           -
       OBJECTS(              -
-      ({{ master.mcat.name }}             -
+      ({{ source.mcat.name }}             -
        DEVICETYPE(3390)     -
-       VOLUMES({{ master.mcat.volume }}))     -
+       VOLUMES({{ source.mcat.volume }}))     -
       )                     -
     CATALOG({{ driver.mcat.name }})
 /*

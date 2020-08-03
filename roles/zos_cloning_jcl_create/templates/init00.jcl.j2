@@ -3,7 +3,7 @@
 //INIT EXEC PGM=ICKDSF ,PARM='NOREPLYU'
 //SYSPRINT DD SYSOUT=*
 //SYSIN DD *
-{% for dev_vol in dev_vols %}
- INIT UNIT({{ dev_vol.device|upper }}) VFY({{ dev_vol.volume|upper }}) VOLID({{ dev_vol.volume|upper }}) VTOC(0,1,330) INDEX(22,1,75)
+{% for volume in target.volumes %}
+ INIT UNIT({{ target.devices[loop.index0]|upper }}) VFY({{ volume|upper }}) VOLID({{ volume|upper }}) VTOC(0,1,330) INDEX(22,1,75)
 {% endfor %}
 /*

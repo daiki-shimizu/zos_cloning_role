@@ -12,23 +12,3 @@ environment_vars:
   _TAG_REDIR_IN: "txt"
   _TAG_REDIR_OUT: "txt"
   LANG: "C"
-
-JCLLIB: IBMUSER.ANSIBLE.JCLLIB
-
-init00:
-  jcllib: "{{ JBLLIB }}"
-  member: INIT00
-  dev_vols:
-    - device: E9A7
-      volume: 0XE9A7
-    - device: E9A8
-      volume: 0XE9A8
-    - device: E9A9
-      volume: 0XE9A9
-
-defmcat1:
-  jcllib: "{{ JCLLIB }}"
-  member: DEFMCAT1
-  name: MCAT.F21D
-  volume: F21DC1
-

@@ -3,7 +3,7 @@
 //SYSPRINT DD SYSOUT=*
 //SYSIN    DD *
    EXPORT                   -
-       {{ name }}            -
+       {{ target.mcat.name }}            -
        DISCONNECT           -
-    CATALOG({{ volume }})
+    CATALOG({{ driver.mcat.name }})
 /*

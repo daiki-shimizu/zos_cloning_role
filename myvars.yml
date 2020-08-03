@@ -1,0 +1,9 @@
+target:
+  volumes:
+    - 0XD9A7
+    - 0XD9A8
+    - 0XD9A9
+  devices:
+    - D9A7
+    - D9A8
+    - D9A9

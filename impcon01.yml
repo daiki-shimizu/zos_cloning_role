@@ -1,15 +1,10 @@
 - hosts: cloning
-  collections:
-    - smart.jcllib
   gather_facts: no
   environment: "{{ environment_vars }}"
 
   tasks:
     - include_role:
-        name: create_jcl
+        name: zos_cloning_jcl_create
       vars:
-        jcllib: "{{ JCLLIB }}"
         jcl_name: impcon01.jcl
         member: IMPCON01
-        name: "{{ driver.mcat.name }}"
-        volume: "{{ driver.mcat.volume }}" 
